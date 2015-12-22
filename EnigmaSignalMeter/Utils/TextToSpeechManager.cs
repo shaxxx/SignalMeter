@@ -72,28 +72,28 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             if (app.Settings.LastAskedForTtsSettings.Date != DateTime.Today && !app.Settings.IgnoreTtsError)
             {
                 var message = string.Format("{0} {1} {2}", 
-                                  context.GetString(Resource.String.err_no_tts_language_available), 
-                                  context.GetString(Resource.String.inf_signal_levels_will_not_be_spoken), 
-                                  context.GetString(Resource.String.question_try_tts_language_download));
-                
-                Action<object, DialogClickEventArgs> positiveAction = (sender, args) =>
-                {
-                    app.Settings.TtsErrorCount = 0;
-                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
-                    DownloadLanguageFiles();
-                };
-                Action<object, DialogClickEventArgs> negativeAction = (sender, args) =>
-                {
-                    app.Settings.TtsErrorCount += 1;
-                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                    context.GetString(Resource.String.err_no_tts_language_available), 
+                    context.GetString(Resource.String.inf_signal_levels_will_not_be_spoken), 
+                    context.GetString(Resource.String.question_try_tts_language_download));
 
-                    if (app.Settings.TtsErrorCount >= ttsErrorLimit)
+                Action<object, DialogClickEventArgs> positiveAction = (sender, args) =>
                     {
-                        AskIgnoreTtsError();
-                    }
-                };
+                        app.Settings.TtsErrorCount = 0;
+                        app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                        ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                        DownloadLanguageFiles();
+                    };
+                Action<object, DialogClickEventArgs> negativeAction = (sender, args) =>
+                    {
+                        app.Settings.TtsErrorCount += 1;
+                        app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                        ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+
+                        if (app.Settings.TtsErrorCount >= ttsErrorLimit)
+                        {
+                            AskIgnoreTtsError();
+                        }
+                    };
                 var dialog = Dialogs.QuestionDialog(context, message, positiveAction, negativeAction);
                 dialog.SetTitle(Resource.String.title_warning);
                 dialog.SetCancelable(false);
@@ -107,22 +107,22 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             {
                 var message = string.Format("{0} {1} {2}", context.GetString(Resource.String.err_failed_to_initialize_tts_engine), context.GetString(Resource.String.inf_signal_levels_will_not_be_spoken), context.GetString(Resource.String.question_open_tts_settings));
                 Action<object, DialogClickEventArgs> positiveAction = (sender, args) =>
-                {
-                    app.Settings.TtsErrorCount = 0;
-                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
-                    LaunchTtsSettings();
-                };
-                Action<object, DialogClickEventArgs> negativeAction = (sender, args) =>
-                {
-                    app.Settings.TtsErrorCount += 1;
-                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
-                    if (app.Settings.TtsErrorCount >= ttsErrorLimit)
                     {
-                        AskIgnoreTtsError();
-                    }
-                };
+                        app.Settings.TtsErrorCount = 0;
+                        app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                        ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                        LaunchTtsSettings();
+                    };
+                Action<object, DialogClickEventArgs> negativeAction = (sender, args) =>
+                    {
+                        app.Settings.TtsErrorCount += 1;
+                        app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                        ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                        if (app.Settings.TtsErrorCount >= ttsErrorLimit)
+                        {
+                            AskIgnoreTtsError();
+                        }
+                    };
                 var dialog = Dialogs.QuestionDialog(context, message, positiveAction, negativeAction);
                 dialog.SetTitle(Resource.String.title_warning);
                 dialog.SetCancelable(false);
@@ -136,7 +136,7 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             if (((int)Android.OS.Build.VERSION.SdkInt) >= 14)
             {
                 Intent intent = new Intent();
-                intent.SetAction("com.android.app.Settings.TTS_SETTINGS");
+                intent.SetAction("com.android.settings.TTS_SETTINGS");
                 intent.SetFlags(ActivityFlags.NewTask);
                 context.StartActivity(intent);
             }
@@ -144,7 +144,7 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             {
                 Intent intent = new Intent();
                 intent.AddCategory(Intent.CategoryLauncher);
-                intent.SetComponent(new ComponentName("com.android.settings", "com.android.app.Settings.TextToSpeechSettings"));
+                intent.SetComponent(new ComponentName("com.android.settings", "com.android.settings.TextToSpeechSettings"));
                 intent.SetFlags(ActivityFlags.NewTask);
                 context.StartActivity(intent);
             }
@@ -152,20 +152,20 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
 
         private void AskIgnoreTtsError()
         {
-            
+
             var message = context.GetString(Resource.String.question_ignore_further_tts_error);
             Action<object, DialogClickEventArgs> positiveAction = (sender, args) =>
-            {
-                app.Settings.IgnoreTtsError = true;
-                app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
-            };
+                {
+                    app.Settings.IgnoreTtsError = true;
+                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                };
             Action<object, DialogClickEventArgs> negativeAction = (sender, args) =>
-            {
-                app.Settings.TtsErrorCount = 0;
-                app.Settings.LastAskedForTtsSettings = DateTime.Now;
-                ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
-            };
+                {
+                    app.Settings.TtsErrorCount = 0;
+                    app.Settings.LastAskedForTtsSettings = DateTime.Now;
+                    ((PreferenceManager)app.PreferenceManager).SaveSettings(context, app.Settings);
+                };
             var dialog = Dialogs.QuestionDialog(context, message, positiveAction, negativeAction);
             dialog.SetCancelable(false);
             dialog.Show();
@@ -217,22 +217,22 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                 using (WebClient wc = new WebClient())
                 {
                     wc.DownloadProgressChanged += (sender, e) =>
-                    {
-                        progressDialog.Progress = e.ProgressPercentage;
-                    };
-                    wc.DownloadFileCompleted += (sender, e) =>
-                    {
-                        progressDialog.Dismiss();
-                        if (e.Error != null)
                         {
-                            Toast.MakeText(context, context.GetString(Resource.String.err_download_failed) + " " + e.Error.Message, ToastLength.Short).Show();
-                            System.Diagnostics.Debug.WriteLine("Failed to download language pack. " + e.Error.Message);
-                            return;
-                        }
-                        System.Diagnostics.Debug.WriteLine("Downloaded file " + filename);
-                        progressDialog.Dismiss();
-                        InstallLanguageFiles(filename);
-                    };
+                            progressDialog.Progress = e.ProgressPercentage;
+                        };
+                    wc.DownloadFileCompleted += (sender, e) =>
+                        {
+                            progressDialog.Dismiss();
+                            if (e.Error != null)
+                            {
+                                Toast.MakeText(context, context.GetString(Resource.String.err_download_failed) + " " + e.Error.Message, ToastLength.Short).Show();
+                                System.Diagnostics.Debug.WriteLine("Failed to download language pack. " + e.Error.Message);
+                                return;
+                            }
+                            System.Diagnostics.Debug.WriteLine("Downloaded file " + filename);
+                            progressDialog.Dismiss();
+                            InstallLanguageFiles(filename);
+                        };
                     wc.DownloadFileAsync(uri, filename);
                 }
                 progressDialog.Show();
@@ -267,10 +267,10 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             {
                 if (!ttsLoaded)
                     return;
-                
+
                 if (!app.ActivityStarted)
                     return;
-                
+
                 try
                 {
                     if (response != null && response.Signal != null && response.Signal.Snr >= 0 && !mTts.IsSpeaking)
@@ -303,4 +303,3 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
 
     }
 }
-
