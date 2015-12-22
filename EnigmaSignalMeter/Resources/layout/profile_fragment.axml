@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ButtonDeleteProfiles"
+            android:text="Delete profiles"
+            android:layout_gravity="center"
+            style="@style/FlatButtonStyle" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ButtonCreateProfiles"
+            android:text="Create profiles"
+            android:layout_gravity="center"
+            style="@style/FlatButtonStyle" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ButtonSaveProfiles"
+            android:text="Save profiles" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ButtonLoadProfiles"
+            android:text="Load profiles" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ProfileList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ButtonLoadProfiles"
+        android:layout_marginTop="15dp"
+        android:layout_weight="5" />
+    <include
+        android:id="@+id/toolbar_bottom"
+        layout="@layout/toolbar_bottom" />
+</LinearLayout>

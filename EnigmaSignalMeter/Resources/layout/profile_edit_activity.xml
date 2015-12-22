@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profileLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ScrollView
+        android:id="@+id/svProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/profileData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_vertical_margin">
+            <LinearLayout
+                android:id="@+id/layout_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/activity_horizontal_margin">
+                <TextView
+                    android:id="@+id/txtProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_name"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/edit_profile_name"
+                    android:hint="@string/profile_name_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:lines="1"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:singleLine="true">
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+            <View
+                style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/layout_profile_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/textview_top_margin">
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_address"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/edit_profile_address"
+                    android:hint="@string/profile_address_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:lines="1"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <View
+                style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/layout_profile_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/textview_top_margin">
+                <TextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_username"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/edit_profile_username"
+                    android:hint="@string/profile_username_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:lines="1"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <View
+                style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/layout_profile_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/textview_top_margin">
+                <TextView
+                    android:id="@+id/txtPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_password"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/edit_profile_password"
+                    android:hint="@string/profile_password_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:lines="1"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:singleLine="true"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+            <View
+                style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/layout_Port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtPort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_port"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/edit_profile_port"
+                    android:hint="@string/profile_port_hint"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:inputType="numberSigned"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:gravity="right"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:singleLine="true" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cbUseSsl"
+                    android:text="@string/profile_use_ssl"
+                    android:layout_marginLeft="60dp"
+                    android:gravity="center"
+                    android:textColor="@color/textColor" />
+            </LinearLayout>
+            <View
+                style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/layout_EnigmaVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/textview_top_margin"
+                android:layout_marginTop="@dimen/textview_top_margin">
+                <TextView
+                    android:id="@+id/txtEnigmaVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/profile_enigma_version"
+                    android:layout_gravity="center_vertical" />
+                <RadioGroup
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:id="@+id/radioGroupEnigma"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:showDividers="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="Enigma1"
+                        android:id="@+id/rbEnigma1"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/textColor"
+                        android:layout_gravity="center_vertical" />
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enigma2"
+                        android:id="@+id/rbEnigma2"
+                        android:textColor="@color/textColor"
+                        android:layout_gravity="center_vertical" />
+                </RadioGroup>
+            </LinearLayout>
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="@dimen/textview_top_margin" />
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switch_streaming"
+                android:checked="false"
+                android:text="@string/profile_streaming_enable"
+                android:textOn="@android:string/yes"
+                android:textOff="@android:string/no"
+                app:showText="false"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                android:textColor="@color/textColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/textview_top_margin" />
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="@dimen/textview_top_margin" />
+            <LinearLayout
+                android:id="@+id/layout_Streaming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/layout_Streaming_Port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txtStreamingPort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_streaming_port"
+                        android:layout_gravity="center_vertical" />
+                    <EditText
+                        android:id="@+id/edit_streaming_port"
+                        android:hint="@string/profile_streaming_port_hint"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:inputType="numberSigned"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                </LinearLayout>
+                <View
+                    style="@style/Divider" />
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_transcoding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/profile_transcoding_enable"
+                    android:textOn="@android:string/yes"
+                    android:textOff="@android:string/no"
+                    app:showText="false"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_vertical_margin"
+                    android:textColor="@color/textColor"
+                    android:layout_marginBottom="@dimen/textview_top_margin" />
+                <View
+                    style="@style/Divider"
+                    android:layout_marginTop="@dimen/textview_top_margin" />
+                <LinearLayout
+                    android:id="@+id/layout_Transcoding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/layout_transcoding_port">
+                        <TextView
+                            android:id="@+id/txtTranscodingPort"
+                            android:text="@string/profile_transcoding_port"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical" />
+                        <EditText
+                            android:id="@+id/edit_transcoding_port"
+                            android:hint="@string/profile_transcoding_port_hint"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:inputType="numberSigned"
+                            android:maxLength="5"
+                            android:maxLines="1"
+                            android:gravity="right"
+                            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                    </LinearLayout>
+                    <View
+                        style="@style/Divider"
+                        android:layout_marginTop="@dimen/textview_top_margin"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

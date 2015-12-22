@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/svSignalLevels"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/signalView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/lblCurrentService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Service"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true"
+            android:clickable="true"
+            android:textStyle="bold"
+            android:background="@color/color50"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark" />
+        <TextView
+            android:id="@+id/lblCurrentSatellite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Satellite"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:background="@color/color50"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+            android:clickable="false" />
+        <LinearLayout
+            android:id="@+id/signalLevels"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lblSNR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="30dp"
+                android:text="SNR"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ProgressBar
+                android:id="@+id/pbSNR"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:minHeight="25dp" />
+            <TextView
+                android:id="@+id/lbldB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="dB"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ProgressBar
+                android:id="@+id/pbdB"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:max="1500"
+                android:minHeight="25dp" />
+            <TextView
+                android:id="@+id/lblBER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="BER"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ProgressBar
+                android:id="@+id/pbBER"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:max="200000"
+                android:minHeight="25dp" />
+            <TextView
+                android:id="@+id/lblAGC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="AGC"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ProgressBar
+                android:id="@+id/pbAGC"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:minHeight="25dp" />
+            <LinearLayout
+                android:id="@+id/lvCheck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/ceLock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:enabled="false"
+                    android:text="LOCK" />
+                <CheckBox
+                    android:id="@+id/ceSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="5dp"
+                    android:enabled="false"
+                    android:text="SYNC" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/lblrqTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/request_time"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+        <Button
+            android:text="@string/start_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_signal_monitor"
+            style="@style/PrimaryColorButtonStyle"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</ScrollView>

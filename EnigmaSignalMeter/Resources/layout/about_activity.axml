@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/svAbout">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layoutAboutPrimary">
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layoutAboutSecondary"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_vertical_margin">
+                <TextView
+                    android:id="@+id/lbAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/AppName"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:singleLine="true"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbVersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/version"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbRelaseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/release_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbAndroidSerial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Android serial"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbAndroidId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Android ID"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbAndroidVersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Android version"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbManufacturer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/manufacturer"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbDeviceModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Model"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <TextView
+                    android:id="@+id/lbMac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="MAC"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/lbAdvertisingId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Ad Id"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor"
+                    android:clickable="false" />
+                <Button
+                    android:text="@string/whats_with_coins"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCoins"
+                    style="@style/PrimaryColorButtonStyle" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor"
+                    android:clickable="false"
+                    android:text="@string/informations_support"
+                    android:gravity="center" />
+                <TextView
+                    android:id="@+id/about_krkadoniURL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:paddingBottom="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:text="http://www.krkadoni.com"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/color900"
+                    android:textColorLink="@color/colorPrimaryDark"
+                    android:gravity="center" />
+                <TextView
+                    android:id="@+id/about_copyright"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:singleLine="true"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/textColor"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@string/about_rights_reserved" />
+                <TextView
+                    android:id="@+id/lbSupporters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/special_thanks_goes_to"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/textColor"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:paddingTop="10dp" />
+                <TextView
+                    android:id="@+id/lbSupporters2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Bosnian Pharao | GigaBlue"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:clickable="false"
+                    android:gravity="center" />
+                <TextView
+                    android:id="@+id/lbTesters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="@string/thanks_for_testing_to"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/textColor"
+                    android:clickable="false"
+                    android:gravity="center" />
+                <TextView
+                    android:id="@+id/lbSatForumUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:paddingBottom="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:text="http://www.satelitskiforum.com"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/color900"
+                    android:textColorLink="@color/colorPrimary"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

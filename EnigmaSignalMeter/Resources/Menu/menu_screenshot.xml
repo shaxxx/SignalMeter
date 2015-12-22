@@ -1,0 +1,29 @@
+﻿<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ScreenShotActivity">
+    <item
+        android:id="@+id/action_screenshot_all"
+        android:title="@string/action_screenshot_all"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_tv_white_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_save"
+        android:title="@string/action_save"
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_save_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_screenshot_osd"
+        android:title="@string/action_screenshot_osd"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_dvr_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_screenshot_picture"
+        android:title="@string/action_screenshot_picture"
+        android:orderInCategory="4"
+        android:icon="@drawable/ic_wallpaper_white_24dp"
+        app:showAsAction="ifRoom" />
+</menu>

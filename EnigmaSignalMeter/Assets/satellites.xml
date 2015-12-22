@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<satellites>
+	<sat name="Yamal 401 (90.0E)" position="900" />
+	<sat name="Horizons 2/Intelsat 15 (85.1E)" position="851" />
+	<sat name="ABS 2 (75.0E)" position="750" />
+	<sat name="Eutelsat 70B (70.5E)" position="705" />
+	<sat name="Intelsat 20 (68.5E)" position="685" />
+	<sat name="Intelsat 17 (66.0E)" position="660" />
+	<sat name="Intelsat 902 (62.0E)" position="620" />
+	<sat name="Intelsat 904 (60.0E)" position="600" />
+	<sat name="NSS 12 (57.0E)" position="570" />
+	<sat name="G-Sat 8/Yamal 402 (54.9E)" position="549" />
+	<sat name="Express AM6 (53.0E)" position="530" />
+	<sat name="Y1A (52.5E)" position="525" />
+	<sat name="Intelsat 10 (47.5E)" position="475" />
+	<sat name="AzerSpace 1/Africasat 1a (46.0E)" position="460" />
+	<sat name="Intelsat 12 (45.0E)" position="450" />
+	<sat name="Türksat 2A/3A/4A (42.0E)" position="420" />
+	<sat name="Hellas Sat 2 (39.0E)" position="390" />
+	<sat name="Eutelsat 36A/36B (36.0E)" position="360" />	
+	<sat name="Eutelsat 33B/33C/Intelsat 28 (33.0E)" position="330" />
+	<sat name="Astra 5B (31.5E)" position="315" />
+	<sat name="Arabsat 5A (30.5E)" position="305" />		
+	<sat name="Astra 2E/2F/2G (28.2E)" position="282" />
+	<sat name="Badr 4/5/6 (26.0E)" position="260" />
+	<sat name="Astra 3B (23.5E)" position="235" />
+	<sat name="Eutelsat 21B (21.6E)" position="216" />
+	<sat name="Astra 1KR/1L/1M/1N (19.2E)" position="192" />
+	<sat name="Eutelsat 16A (16.0E)" position="160" />
+	<sat name="Eutelsat Hot Bird 13B/13C/13D (13.0E)" position="130" />
+	<sat name="Eutelsat 10A (10.0E)" position="100" />
+	<sat name="Eutelsat 9A/Ka-Sat 9A (9.0E)" position="90" />
+	<sat name="Eutelsat 7A/7B (7.0E)" position="70" />
+	<sat name="Astra 4A/SES 5 (4.9E)" position="49" />
+	<sat name="Eutelsat 3B/Rascom QAF 1R (3.1E)" position="31" />
+	<sat name="Thor 5/6/7/Intelsat 10-02 (0.8W)" position="-8" />
+	<sat name="Thor 5/6/7/Intelsat 10-02 (1W)" position="-10" />
+	<sat name="Amos 2/3 (4.0W)" position="-40" />
+	<sat name="Eutelsat 5 West A (5.0W)" position="-50" />
+	<sat name="Eutelsat 7 West A/Eutelsat 8 West C/Nilesat 102/201 (7.0W)" position="-70" />
+	<sat name="Eutelsat 8 West A (8.0W)" position="-80" />
+	<sat name="Express AM44 (11.0W)" position="-110" />
+	<sat name="Eutelsat 12 West A (12.5W)" position="-125" />
+	<sat name="Telstar 12 (15.0W)" position="-150" />
+	<sat name="Intelsat 901 (18.0W)" position="-180" />
+	<sat name="SES 4 (22.0W)" position="-220" />
+	<sat name="Intelsat 905 (24.5W)" position="-245" />
+	<sat name="Intelsat 907 (27.5W)" position="-275" />
+	<sat name="Hispasat 1D/1E (30.0W)" position="-300" />
+	<sat name="Intelsat 903 (34.5W)" position="-345" />
+	<sat name="NSS 10/Telstar 11N (37.5W)" position="-375" />
+	<sat name="Intelsat 14 (45.0W)" position="-450" />
+</satellites>

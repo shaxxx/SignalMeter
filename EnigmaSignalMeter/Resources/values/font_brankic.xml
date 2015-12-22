@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+		<string name="font_brankic_path">fonts/font_brankic.ttf</string>
+		<string name="fb_radio">&#xe990;</string>
+		<string name="fb_satellite">&#xe991;</string>
+		<string name="fb_magnifier">&#xe99b;</string>
+		<string name="fb_list">&#xe9c4;</string>
+		<string name="fb_list2">&#xe9c5;</string>
+		<string name="fb_cog">&#xe948;</string>
+		<string name="fb_monitor">&#xe926;</string>
+		<string name="fb_tv">&#xe928;</string>
+		<string name="fb_attachment">&#xe9f0;</string>
+		<string name="fb_chart4">&#xe96a;</string>
+		<string name="fb_info">&#xea1a;</string>
+		<string name="fb_info2">&#xea1b;</string>
+		<string name="fb_film2">&#xe92d;</string>
+		<string name="fb_plus">&#xe942;</string>
+		<string name="fb_plus2">&#xe943;</string>
+		<string name="fb_add">&#xea44;</string>
+		<string name="fb_minus">&#xe944;</string>
+		<string name="fb_minus2">&#xe945;</string>
+		<string name="fb_minus3">&#xea45;</string>
+		<string name="fb_cord">&#xe996;</string>
+		<string name="fb_switch2">&#xea5c;</string>
+</resources>

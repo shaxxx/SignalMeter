@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:minHeight="48dip"
+    android:clickable="false">
+    <com.krkadoni.app.signalmeter.utils.FontTextView
+        android:id="@+id/marker_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/fb_radio"
+        android:paddingLeft="16dip"
+        android:textSize="18dp"
+        local:typeFace="@string/icon_font_path"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:clickable="false" />
+    <TextView
+        android:id="@+id/marker_title"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:gravity="center_vertical"
+        android:clickable="false"
+        android:singleLine="true" />
+</LinearLayout>

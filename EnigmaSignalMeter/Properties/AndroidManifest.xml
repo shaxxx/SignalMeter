@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="263" android:versionName="0.103" package="com.krkadoni.app.signalmeter">
+	<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="21" />
+	<application android:icon="@drawable/icon" android:theme="@style/MyMaterialTheme" android:backupAgent="utils.PreferencesBackupHelper" android:label="@string/AppName">
+		<meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIXfopVTxuNXQi_9EE_2o6Dk2Xr-y_yxTKH8nxsQ" />
+		<meta-data android:name="com.google.android.gms.version" android:value="4452000" />
+		<activity android:name="com.tapjoy.TJAdUnitActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+		<activity android:name="com.tapjoy.mraid.view.ActionHandler" android:configChanges="orientation|keyboardHidden|screenSize" />
+		<activity android:name="com.tapjoy.mraid.view.Browser" android:configChanges="orientation|keyboardHidden|screenSize" />
+		<activity android:name="com.tapjoy.TJContentActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<receiver android:name="com.tapjoy.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.gcm.intent.RETRY" />
+				<category android:name="com.krkadoni.app.signalmeter" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.tapjoy.TapjoyReceiver" />
+	</application>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<permission android:name="com.krkadoni.app.signalmeter.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.krkadoni.app.signalmeter.permission.C2D_MESSAGE" />
+</manifest>

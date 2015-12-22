@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+	</style>
+	<style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<!--		<item name="android:buttonStyle">@style/PrimaryColorButtonStyle</item>-->
+		<!--        <item name="android:textColorPrimary">@color/textColorPrimary</item> -->
+        <item name="android:textColor">@color/textColor</item>
+		<!--        <item name="android:background">@android:color/white</item>-->
+		<!--      	<item name="android:windowBackground">@android:color/white</item>
+      	<item name="android:colorBackground">@android:color/white</item>-->
+	</style>
+	<style name="PrimaryColorButtonStyle" parent="Widget.AppCompat.Button.Colored">
+		<item name="colorButtonNormal">@color/colorPrimary</item>
+		<item name="android:textColor">@color/textColorPrimary</item>
+	</style>
+	<style name="FlatButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+		<item name="colorButtonNormal">@android:color/transparent</item>
+		<item name="android:textColor">@color/colorPrimary</item>
+	</style>
+	<style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">#5fa3d0</item>
+		<item name="android:textColorPrimary">#000000</item>
+		<item name="android:background">#FFFFFF</item>
+	</style>
+	<style name="Divider">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">1dp</item>
+    <item name="android:background">?android:attr/listDivider</item>
+</style>
+</resources>

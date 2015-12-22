@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screenshot_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutContent"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/ivScreenShot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_image_light_blue"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:visibility="gone" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layoutPb"
+            android:layout_weight="1"
+            android:visibility="gone">
+            <ProgressBar
+                android:id="@+id/pbScreenShot"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progressbar"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+    <include
+        android:id="@+id/toolbar_bottom"
+        layout="@layout/toolbar_bottom" />
+</LinearLayout>

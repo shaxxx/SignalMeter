@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+ 
+    <item
+        android:id="@+id/action_stream"
+        android:title="@string/action_stream"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_cast_connected_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_screenshot"
+        android:title="@string/action_screenshot"
+         android:orderInCategory="2"
+        android:icon="@drawable/ic_satellite_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_sleep"
+        android:title="@string/action_sleep"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_power_settings_new_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_restart"
+        android:title="@string/action_restart"
+        android:orderInCategory="4"
+        android:icon="@drawable/ic_loop_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_coins"
+        android:title="@string/action_coins"
+        android:orderInCategory="5"
+        android:icon="@drawable/ic_shop_white_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/AboutTitle"
+        android:orderInCategory="6"
+        android:icon="@drawable/ic_info_outline_white_24dp"
+        app:showAsAction="ifRoom" />
+</menu>
+

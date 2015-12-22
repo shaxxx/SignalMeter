@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{D3CA230E-B270-4CF4-9861-F2EC4D2AFDF7}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Com.Krkadoni.Utils</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\GenericOnClickListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\GenericOnGestureListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\GenericRunnable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapter\GenericRecyclerViewAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IOnClickListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IPreferenceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IGlobalApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\RecyclerTouchListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ListItemClickedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\NavDrawerItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layout\GenericActionBarDrawerToggle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layout\SimpleRecyclerViewHolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layout\TwoItemsRecyclerViewHolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GenericEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layout\DividerItemDecoration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\FileSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Network.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\DeviceInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Adapter\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Interfaces\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Layout\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="AppName">SignalMeter</string>
+	<string name="ReleaseName">Lollipop</string>
+	<string name="profile_file_key">com.krkadoni.app.signalmeter.Profiles</string>
+	<string name="preferences_file_key">com.krkadoni.app.signalmeter.Preferences</string>
+	<string name="preferences_backup_key">com.krkadoni.app.signalmeter.Backup</string>
+	<!-- navigation drawer item labels  -->
+	<string-array name="nav_drawer_labels">
+		<item>@string/ProfileTitle</item>
+		<item>@string/BouquetsTitle</item>
+		<item>@string/ServicesTitle</item>
+		<item>@string/SignalTitle</item>
+	</string-array>
+	<string name="satellites_xml_path">satellites.xml</string>
+	<string name="default_font_path">@string/font_brankic_path</string>
+	<string name="icon_font_path">@string/font_brankic_path</string>
+	<string name="language_pack_apk_url">https://eyes-free.googlecode.com/files/com.svox.langpack.installer_1.0.1.apk</string>
+	<string name="insights_key">insights.key</string>
+	<string name="tapjoy_key">tapjoy.key</string>
+	<integer name="tapjoy_stream_price">100</integer>
+	<string name="gcmsenderid_key">gcmsenderid.key</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@android:style/TextAppearance.Small"
+    android:gravity="center_vertical"
+    android:paddingStart="6dip"
+    android:paddingEnd="6dip"
+    android:paddingLeft="32dip"
+    android:minHeight="48dip"
+    android:checkMark="@null"
+    android:singleLine="true" />
