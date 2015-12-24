@@ -18,12 +18,26 @@ namespace Com.Krkadoni.Utils
                     var task = tcpClient.ConnectAsync(hostname, port);
                     if (await Task.WhenAny(task, Task.Delay(TimeSpan.FromSeconds(3))) == task)
                     {
+                        if (task.Exception != null)
+                        {
+                            System.Diagnostics.Debug.WriteLine(string.Format("TcpClient Task for {0}:{1} failed with error: {2}", hostname, port, task.Exception.Message));
+                            return false;
+                        }
+                            
+                        
                         if (!tcpClient.Connected)
                             System.Diagnostics.Debug.WriteLine(string.Format("{0}:{1} is NOT available", hostname, port));
                         return tcpClient.Connected;
                     }
                     else
                     {
+                        task.ContinueWith( t =>
+                            {
+                                var aggException = t.Exception.Flatten();
+                                System.Diagnostics.Debug.WriteLine(string.Format("TcpClient ended after being canceled. " + aggException.Message));
+                            }, 
+                            TaskContinuationOptions.OnlyOnFaulted);
+                        
                         System.Diagnostics.Debug.WriteLine(string.Format("TcpClient on {0}:{1} timed out.", hostname, port));
                         try
                         {

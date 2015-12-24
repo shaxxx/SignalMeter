@@ -701,9 +701,9 @@ namespace Com.Krkadoni.App.SignalMeter.Model
 
                 if (commandTask.Exception != null)
                 {
-                    tokenSource.Cancel();
-                    if (commandTask.Exception != null)
-                    {
+                    if (tokenSource != null)
+                        tokenSource.Cancel();
+                    
                         Exception exToThrow = commandTask.Exception.Flatten();
                         while (exToThrow.InnerException != null)
                         {
@@ -714,7 +714,6 @@ namespace Com.Krkadoni.App.SignalMeter.Model
                             exToThrow = exToThrow.InnerException;
                         }
                         throw exToThrow;
-                    }
                 }
                     
                 if (tokenSource != null)

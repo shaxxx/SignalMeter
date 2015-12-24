@@ -194,10 +194,10 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             {
                 drawerFragment = (FragmentDrawer)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_navigation_drawer);
                 drawerFragment.SetUpDrawer(Resource.Id.fragment_navigation_drawer, FindViewById<DrawerLayout>(Resource.Id.drawer_layout), mToolbar);
-                drawerFragment.ListItemClicked += (sender, e) => 
+                drawerFragment.ListItemClicked += (sender, e) =>
                 {
-                        if (ConnectionManager.Connected )
-                            DisplayView((MainEventHandlers.ViewsEnum)e.Position); 
+                    if (ConnectionManager.Connected)
+                        DisplayView((MainEventHandlers.ViewsEnum)e.Position); 
                 };
             }
 
@@ -362,7 +362,8 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
                 sleepMenu.SetVisible(screenShotMenu.IsVisible);
             if (screenShotMenu != null && restartMenu != null)
                 restartMenu.SetVisible(screenShotMenu.IsVisible);
-            coinsMenu.SetVisible(TapjoyManager.StreamPlacementAvailable);
+            if (coinsMenu != null)
+                coinsMenu.SetVisible(TapjoyManager.StreamPlacementAvailable);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -390,7 +391,7 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             }
             catch (Exception ex)
             {
-                Log.Error(TAG, string.Format( "Failed to initialize Xamarin Insights! {0}", ex.Message));
+                Log.Error(TAG, string.Format("Failed to initialize Xamarin Insights! {0}", ex.Message));
             }
         }
 
@@ -475,9 +476,14 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             string title = GetString(Resource.String.AppName);
             Android.Support.V4.App.Fragment fragment;
 
-            if (!app.ActivityStarted || savedInstanceState)
+            if (!app.ActivityStarted)
             {
                 selectedView = position;
+                return;
+            }
+
+            if (savedInstanceState)
+            {
                 return;
             }
 

@@ -130,9 +130,9 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                         message += " " + context.GetString(Resource.String.err_check_your_connection);
                     Log.Debug(TAG, "Java.Net.ConnectException");
                 }
-                else if (firstEx is Java.Lang.Exception)
+                else if (firstEx is Java.Lang.Throwable)
                 {
-                    var javaMessage = firstEx.Message;
+                    var javaMessage = ((Java.Lang.Throwable)firstEx).Message;
                     if (javaMessage.IndexOf('(') > -1 && javaMessage.IndexOf(')') > -1)
                     {
                         var beginIndex = javaMessage.LastIndexOf('(');
@@ -154,7 +154,7 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                         message += " " + context.GetString(Resource.String.err_check_your_connection);
                     Log.Debug(TAG, "Java.Lang.Exception");
                 }
-                else if (firstEx is Exception)
+                else if (firstEx is FailedStatusCodeException)
                 {
                     var ex = (FailedStatusCodeException)firstEx;
                     if (ex.StatusCode == HttpStatusCode.InternalServerError)

@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace Com.Krkadoni.App.SignalMeter.Model
 {
@@ -75,8 +76,13 @@ namespace Com.Krkadoni.App.SignalMeter.Model
                 st.Restart();
 
                 string result = null;
-                using (var response = await httpClient.GetAsync(uri, HttpCompletionOption.ResponseContentRead, token))
+
+                using (var task = httpClient.GetAsync(uri, HttpCompletionOption.ResponseContentRead, token))
                 {
+                    var response = await task;
+                    token.ThrowIfCancellationRequested();
+                    if (task.Status == TaskStatus.Faulted && task.Exception != null)
+                        throw task.Exception;
                     if (!response.IsSuccessStatusCode)
                         throw new FailedStatusCodeException(url, response.StatusCode);
                     token.ThrowIfCancellationRequested();
@@ -155,8 +161,12 @@ namespace Com.Krkadoni.App.SignalMeter.Model
                 st.Restart();
 
                 byte[] result = null;
-                using (var response = await httpClient.GetAsync(uri, HttpCompletionOption.ResponseContentRead, token))
+                using (var task = httpClient.GetAsync(uri, HttpCompletionOption.ResponseContentRead, token))
                 {
+                    var response = await task;
+                    token.ThrowIfCancellationRequested();
+                    if (task.Status == TaskStatus.Faulted && task.Exception != null)
+                        throw task.Exception;
                     if (!response.IsSuccessStatusCode)
                         throw new FailedStatusCodeException(url, response.StatusCode);
                     token.ThrowIfCancellationRequested();
