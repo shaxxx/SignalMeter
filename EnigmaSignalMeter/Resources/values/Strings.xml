@@ -116,5 +116,6 @@
     <string name="warn_save_the_profile_anyway">Save the profile anyway?</string>
     <string name="voice">Voice</string>
     <string name="checking_ports">Checking ports</string>
-     <string name="content_not_available">Content is currently unavailable</string>
+    <string name="content_not_available">Content is currently unavailable</string>
+    <string name="failed_to_parse_response">Invalid response.</string>
 </resources>

@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using Android.Widget;
 using Com.Krkadoni.Utils;
+using Krkadoni.Enigma.Parsers;
 
 namespace Com.Krkadoni.App.SignalMeter.Utils
 {
@@ -83,7 +84,7 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                 }
 
                 Log.Error(TAG, firstEx.Message);
-                Log.Error(TAG, firstEx.StackTrace);
+
                 if (firstEx is WebException)
                 {
                     WebException webEx = (WebException)firstEx;
@@ -139,8 +140,8 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                         var endIndex = javaMessage.LastIndexOf(')');
                         if (endIndex > beginIndex)
                         {
-                            javaMessage = javaMessage.Substring(beginIndex+1);
-                            javaMessage = javaMessage.Substring(0,endIndex - beginIndex -1);
+                            javaMessage = javaMessage.Substring(beginIndex + 1);
+                            javaMessage = javaMessage.Substring(0, endIndex - beginIndex - 1);
                         }
                         else
                             javaMessage = string.Empty;
@@ -181,6 +182,11 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
                 {
                     message = commandFailed + " " + context.GetString(Resource.String.err_operation_timed_out);
                 }
+                else if (firstEx is ParsingException)
+                {
+                    message = commandFailed + " " + context.GetString(Resource.String.failed_to_parse_response);
+                    ;
+                }
                 else if (firstEx is KnownException)
                 {
                     message = commandFailed + " " + firstEx.Message;
@@ -213,7 +219,7 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
             if (ConnectionManager.Connected)
             {
                 ShowConnectStatusToast(string.Format(context.GetString(Resource.String.inf_connected_to), e.Item.Name));
-                await ConnectionManager.ReadCurrentService(e.Item);
+                //await ConnectionManager.ReadCurrentService(e.Item);
                 await ConnectionManager.LoadBouquets(e.Item);
                 if (ConnectionManager.Bouquets != null && ConnectionManager.Bouquets.Count > 0)
                 {
@@ -289,7 +295,16 @@ namespace Com.Krkadoni.App.SignalMeter.Utils
         {
             if (progressDialog == null)
                 return;
-            progressDialog.Dismiss();
+            if (progressDialog.IsShowing)
+                try
+                {
+                    progressDialog.Dismiss();
+                }
+                catch (Exception ex)
+                {
+                    Log.Debug(TAG, "Failed to dismiss progress dialog. " + ex.Message);
+                }
+                
         }
 
         public Action<ViewsEnum> DisplayView { get; set; }

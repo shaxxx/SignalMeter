@@ -685,6 +685,15 @@ namespace Com.Krkadoni.App.SignalMeter.Model
                     tokenSource.Token.ThrowIfCancellationRequested();
                 if (await Task.WhenAny(commandTask, Task.Delay(TimeSpan.FromSeconds(timeout), tokenSource.Token)) != commandTask)
                 { 
+                    commandTask.ContinueWith(t =>
+                        {
+                            if (t.Exception != null)
+                            {
+                                var aggException = t.Exception.Flatten();
+                                System.Diagnostics.Debug.WriteLine(string.Format("{0} failed after being canceled. {1}", typeof(TCommand).Name, aggException.Message));  
+                            }
+                        }, 
+                        TaskContinuationOptions.OnlyOnFaulted);
                     if (tokenSource != null)
                         tokenSource.Cancel();
                     throw new OperationCanceledException();
@@ -693,27 +702,21 @@ namespace Com.Krkadoni.App.SignalMeter.Model
                 if (tokenSource != null)
                     tokenSource.Token.ThrowIfCancellationRequested();
 
-                //                if (Connected || typeof(TCommand) == typeof(IWakeUpCommand))
-                //                    return !commandTask.IsCanceled && !commandTask.IsFaulted && commandTask.IsCompleted;
-
                 if (Connected && !commandTask.IsCanceled && !commandTask.IsFaulted && commandTask.IsCompleted)
                     return true;
 
                 if (commandTask.Exception != null)
-                {
-                    if (tokenSource != null)
-                        tokenSource.Cancel();
-                    
-                        Exception exToThrow = commandTask.Exception.Flatten();
-                        while (exToThrow.InnerException != null)
+                {                    
+                    Exception exToThrow = commandTask.Exception.Flatten();
+                    while (exToThrow.InnerException != null)
+                    {
+                        if (exToThrow is KnownException)
                         {
-                            if (exToThrow is KnownException)
-                            {
-                                break;   
-                            }
-                            exToThrow = exToThrow.InnerException;
+                            break;   
                         }
-                        throw exToThrow;
+                        exToThrow = exToThrow.InnerException;
+                    }
+                    throw exToThrow;
                 }
                     
                 if (tokenSource != null)
@@ -725,8 +728,10 @@ namespace Com.Krkadoni.App.SignalMeter.Model
             }
             catch (System.OperationCanceledException ex)
             {
-                ConnectionStatus = ConnectionStatusEnum.Errored;
                 Log.Error(TAG, String.Format("Command is cancelled. {0} ", ex.Message));
+                if (ConnectionStatus == ConnectionStatusEnum.Errored || ConnectionStatus == ConnectionStatusEnum.Disconnecting)
+                    return false;
+                ConnectionStatus = ConnectionStatusEnum.Errored;
                 OnExceptionRaised(new ExceptionRaisedEventArgs(profile, command, ex));
                 Disconnect();
                 ConnectionStatus = ConnectionStatusEnum.Errored;
@@ -734,8 +739,10 @@ namespace Com.Krkadoni.App.SignalMeter.Model
             }
             catch (KnownException ex)
             {
-                ConnectionStatus = ConnectionStatusEnum.Errored;
                 Log.Error(TAG, String.Format("Known exception: {0} ", ex.Message));
+                if (ConnectionStatus == ConnectionStatusEnum.Errored || ConnectionStatus == ConnectionStatusEnum.Disconnecting)
+                    return false;
+                ConnectionStatus = ConnectionStatusEnum.Errored;
                 OnExceptionRaised(new ExceptionRaisedEventArgs(profile, command, ex));
                 Disconnect();
                 ConnectionStatus = ConnectionStatusEnum.Errored;
@@ -743,8 +750,10 @@ namespace Com.Krkadoni.App.SignalMeter.Model
             }
             catch (Exception ex)
             {
-                ConnectionStatus = ConnectionStatusEnum.Errored;
                 Log.Error(TAG, String.Format("Unknown exception: {0} ", ex.Message));
+                if (ConnectionStatus == ConnectionStatusEnum.Errored || ConnectionStatus == ConnectionStatusEnum.Disconnecting)
+                    return false;
+                ConnectionStatus = ConnectionStatusEnum.Errored;
                 OnExceptionRaised(new ExceptionRaisedEventArgs(profile, command, ex));
                 Disconnect();
                 ConnectionStatus = ConnectionStatusEnum.Errored;

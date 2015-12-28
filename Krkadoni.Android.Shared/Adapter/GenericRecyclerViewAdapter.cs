@@ -53,39 +53,54 @@ namespace Com.Krkadoni.Utils
 
         public virtual void Insert(int position, T item)
         {
-            Data.Insert(position, item);
-            NotifyItemInserted(position);
-            NotifyDataSetChanged();
+            if (Data != null && Data.Count > position && position >= 0)
+            {
+                Data.Insert(position, item);
+                NotifyItemInserted(position);
+                NotifyDataSetChanged();
+            }
         }
 
         public virtual void InsertRange(int position, T[] items)
         {
-            Data.AddRange(items);
-            NotifyItemRangeInserted(position, items.Length);
-            NotifyDataSetChanged();
+            if (Data != null && Data.Count > position && position >= 0)
+            {
+                Data.AddRange(items);
+                NotifyItemRangeInserted(position, items.Length);
+                NotifyDataSetChanged();
+            }
         }
 
         public virtual void Add(T item)
         {
-            var count = Data.Count;
-            Data.Add(item);
-            NotifyItemInserted(count);
-            NotifyDataSetChanged();
+            if (Data != null)
+            {
+                var count = Data.Count;
+                Data.Add(item);
+                NotifyItemInserted(count);
+                NotifyDataSetChanged();
+            }
         }
 
         public virtual void AddRange(T[] items)
         {
-            var count = Data.Count;
-            Data.AddRange(items);
-            NotifyItemRangeInserted(count, items.Length);
-            NotifyDataSetChanged();
+            if (Data != null)
+            {
+                var count = Data.Count;
+                Data.AddRange(items);
+                NotifyItemRangeInserted(count, items.Length);
+                NotifyDataSetChanged();
+            }
         }
 
         public virtual void Delete(int position)
         {
-            Data.RemoveAt(position);
-            NotifyItemRemoved(position);
-            NotifyDataSetChanged();
+            if (Data != null && Data.Count > position && position >= 0)
+            {
+                Data.RemoveAt(position);
+                NotifyItemRemoved(position);
+                NotifyDataSetChanged();
+            }
         }
 
         public virtual void Clear()

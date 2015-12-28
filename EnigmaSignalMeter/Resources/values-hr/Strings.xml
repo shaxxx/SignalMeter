@@ -117,4 +117,5 @@
     <string name="voice">Glas</string> 
     <string name="checking_ports">Provjeravam portove</string>
     <string name="content_not_available">Sadržaj trenutno nedostupan</string>
+    <string name="failed_to_parse_response">Neispravan odgovor.</string>
 </resources>

@@ -255,6 +255,9 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
                 DisplayView(selectedView);
             if (ConnectionManager.Connected)
                 ConnectionManager.CurrentServiceMonitor.Start();
+
+            if (ConnectionManager.ConnectionStatus == ConnectionManager.ConnectionStatusEnum.Connecting)
+                eventHandlers.ShowProgressDialog();
         }
 
         protected override void OnStop()
@@ -267,13 +270,17 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
-            
+            savedInstanceState = true;
             base.OnSaveInstanceState(outState);
             outState.PutInt(selectedViewKey, (int)selectedView);
         }
 
         protected override void OnDestroy()
         {
+            if (eventHandlers != null)
+            {
+                eventHandlers.HideProgressDialog();
+            }
             if (backButtonPressed)
             {
                 backButtonPressed = false;
@@ -354,6 +361,12 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
 
         private void SetMenuVisibility(bool forceHide = false)
         {
+            if (!app.ActivityStarted)
+                return;
+            if (ConnectionManager.GetInstance() == null)
+                return;
+            if (TapjoyManager.GetInstance() == null)
+                return;
             if (screenShotMenu != null)
                 screenShotMenu.SetVisible(ConnectionManager.Connected && !forceHide);
             if (streamMenu != null && screenShotMenu != null)
@@ -516,7 +529,7 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
 
                 if (savedInstanceState)
                     return;
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.container_body, fragment).Commit();
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.container_body, fragment).CommitAllowingStateLoss();
                 SupportFragmentManager.ExecutePendingTransactions();
                 drawerFragment.Adapter.ClearSelections();
                 drawerFragment.Adapter.ToggleSelection((int)position);
@@ -526,10 +539,10 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             {
                 if (savedInstanceState)
                     return;   
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.profiles_layout, profilesFragment).Commit();
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.bouquets_layout, bouquetsFragment).Commit();
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.services_layout, servicesFragment).Commit();
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.signal_layout, signalFragment).Commit();
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.profiles_layout, profilesFragment).CommitAllowingStateLoss();
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.bouquets_layout, bouquetsFragment).CommitAllowingStateLoss();
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.services_layout, servicesFragment).CommitAllowingStateLoss();
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.signal_layout, signalFragment).CommitAllowingStateLoss();
                 SupportFragmentManager.ExecutePendingTransactions();
                 SupportActionBar.Title = title;
 
