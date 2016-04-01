@@ -41,7 +41,7 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.about_activity);
-            mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);       
+            mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -61,13 +61,13 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             btnCoins.Click += (sender, e) =>
             Dialogs.BuildDialog(this, "Info", GetString(Resource.String.coins_explanation), (args, ed) =>
                 {
-                    }, null, null, Android.Resource.String.Ok, 0, 0).Show();
+                }, null, null, Android.Resource.String.Ok, 0, 0).Show();
             lbRelaseName.Text += ":  " + app.ReleaseName;
             try
             {
                 PackageManager manager = this.PackageManager;
                 PackageInfo info = manager.GetPackageInfo(this.PackageName, 0);
-                lbVersion.Text += ":  " + info.VersionName;   
+                lbVersion.Text += ":  " + info.VersionName;
             }
             catch (Exception)
             {
@@ -91,7 +91,7 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
         {
             if (item.ItemId == Android.Resource.Id.Home)
             {
-                NavUtils.NavigateUpFromSameTask(this);            
+                NavUtils.NavigateUpFromSameTask(this);
                 return true;
             }
             return base.OnOptionsItemSelected(item);
@@ -109,12 +109,15 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
                 Class adInfoClass = Class.ForName("com.google.android.gms.ads.identifier.AdvertisingIdClient$Info");
                 Method getId = null;
                 Object adInfo = null;
-                await Task.Factory.StartNew(() =>
+                var task = Task.Factory.StartNew(() =>
                     {
                         adInfo = getAdvertisingIdInfo.Invoke(localClass, new Object[] { this });
                         getId = adInfoClass.GetMethod("getId", new Class[0]);
                         id = (string)getId.Invoke(adInfo, new Object[0]);
                     });
+                await task;
+                if (task.Exception != null)
+                    Log.Debug(TAG, "Failed to obtain Google AdvertisingId");
             }
             catch (System.Exception)
             {
@@ -122,7 +125,7 @@ namespace Com.Krkadoni.App.SignalMeter.Layout
             }
             return id;
         }
-            
+
     }
 }
 
